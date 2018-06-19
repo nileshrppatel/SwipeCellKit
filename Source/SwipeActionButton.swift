@@ -48,7 +48,7 @@ class SwipeActionButton: UIButton {
         highlightedBackgroundColor = action.highlightedBackgroundColor ?? UIColor.black.withAlphaComponent(0.1)
 
         titleLabel?.font = action.font ?? UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.medium)
-        titleLabel?.textAlignment = .center
+        titleLabel?.textAlignment = .left
         titleLabel?.lineBreakMode = .byWordWrapping
         titleLabel?.numberOfLines = 0
         
@@ -86,17 +86,17 @@ class SwipeActionButton: UIButton {
                                   context: nil).integral
     }
     
-    override func titleRect(forContentRect contentRect: CGRect) -> CGRect {
-        var rect = contentRect.center(size: titleBoundingRect(with: contentRect.size).size)
-        rect.origin.y = alignmentRect.minY + imageHeight + currentSpacing
-        return rect.integral
-    }
-    
-    override func imageRect(forContentRect contentRect: CGRect) -> CGRect {
-        var rect = contentRect.center(size: currentImage?.size ?? .zero)
-        rect.origin.y = alignmentRect.minY + (imageHeight - rect.height) / 2
-        return rect
-    }
+//    override func titleRect(forContentRect contentRect: CGRect) -> CGRect {
+//        var rect = contentRect.center(size: titleBoundingRect(with: contentRect.size).size)
+//        rect.origin.y = alignmentRect.minY + imageHeight + currentSpacing
+//        return rect.integral
+//    }
+//    
+//    override func imageRect(forContentRect contentRect: CGRect) -> CGRect {
+//        var rect = contentRect.center(size: currentImage?.size ?? .zero)
+//        rect.origin.y = alignmentRect.minY + (imageHeight - rect.height) / 2
+//        return rect
+//    }
 }
 
 extension CGRect {
